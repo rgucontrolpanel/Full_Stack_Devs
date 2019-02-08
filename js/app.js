@@ -63,11 +63,12 @@ app.controller('modalController', ['$uibModalInstance', 'items', function ($uibM
 
         angular.forEach(modCtrl.items, function (value, key) {
 
-            if (value === true)
-                $('#' + key).draggable();
-            else
-                if ($('#' + key).hasClass('ui-draggable'))
-                    $('#' + key).draggable('destroy');
+
+          if (modCtrl.items[key].checked)
+            $('#icon' + parseInt(key + 1)).draggable();
+          else
+            if ($('#icon' + parseInt(key + 1)).hasClass('ui-draggable'))
+              $('#icon' + parseInt(key + 1)).draggable('destroy');
 
         });
 
