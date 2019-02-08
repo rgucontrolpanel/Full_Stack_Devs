@@ -1,0 +1,95 @@
+.main{
+  display: flex;
+  height: 800px;
+}
+
+.icon{
+
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  position: absolute;
+
+}
+
+body{
+  /* background-image: url("./images/desk.jpg"); */
+}
+
+li{
+  list-style-type: none;
+}
+
+#icon1{
+  background-image: url("../img/email.png");
+  top: 33px;
+  left: 104px;
+}
+
+#icon2{
+  background-image: url("../img/calendar.png");
+  top: 33px;
+  left: 219px;
+}
+
+#icon3{
+  background-image: url("../img/album.png");
+  top: 33px;
+  left: 333px;
+}
+
+#icon4{
+  background-image: url("../img/weather.png");
+  top: 33px;
+  left: 447px;
+}
+
+#icon5{
+  background-image: url("../img/facebook.png");
+  top: 33px;
+  left: 561px;
+}
+
+#icon6{
+  background-image: url("../img/instagram.png");
+  top: 33px;
+  left: 675px;
+}
+
+#icon7{
+  background-image: url("../img/music.png");
+  top: 33px;
+  left: 789px;
+}
+
+#icon8{
+  background-image: url("../img/news.png");
+  top: 33px;
+  left: 903px;
+}
+
+#icon9{
+  background-image: url("../img/notes.png");
+  top: 33px;
+  left: 1017px;
+}
+
+#icon10{
+  background-image: url("../img/wallet.png");
+  top: 33px;
+  left: 1131px;
+}
+
+#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+#config-btn{
+  background-image: url("../img/config.png");
+  position: absolute;
+  top: 31px;
+  right: 31px;
+  height: 50px;
+  width: 50px;
+}

@@ -4,20 +4,29 @@ app.controller('mainController', ['$scope', '$uibModal', function ($scope, $uibM
 
     vm = this;
 
-    vm.items = {
+    vm.categoriesCount = 0;
 
-        icon1: false,
-        icon2: false,
-        icon3: false
+    vm.items = [
 
-    };
+      { id: '0', name: 'icon1', checked: false, description: 'Mail' },
+      { id: '1', name: 'icon2', checked: false, description: 'Calendar' },
+      { id: '2', name: 'icon3', checked: false, description: 'Photo Album' },
+      { id: '3', name: 'icon4', checked: false, description: 'Weather' },
+      { id: '4', name: 'icon5', checked: false, description: 'Facebook' },
+      { id: '5', name: 'icon6', checked: false, description: 'Instagram' },
+      { id: '6', name: 'icon7', checked: false, description: 'Music' },
+      { id: '7', name: 'icon8', checked: false, description: 'News' },
+      { id: '8', name: 'icon9', checked: false, description: 'Notes' },
+      { id: '9', name: 'icon10', checked: false, description: 'Money' }
+
+    ];
 
     vm.openModal = function () {
-        
+
         var modalInstance = $uibModal.open({
-            
+
             templateUrl: 'myTemplate.html',
-            controller: 'modalController', 
+            controller: 'modalController',
             controllerAs: 'modCtrl',
             scope: $scope,
             resolve: {
@@ -28,7 +37,19 @@ app.controller('mainController', ['$scope', '$uibModal', function ($scope, $uibM
 
         }).result.then(function () { }, function (res) { });
 
-    }
+    };
+
+    vm.checkCategories = function(item){
+
+      if(item.checked)
+        vm.categoriesCount++;
+      else
+        vm.categoriesCount--;
+
+      if(vm.categoriesCount > 5)
+        console.log('Only 5 categories.');
+
+    };
 
 }]);
 
@@ -36,8 +57,8 @@ app.controller('modalController', ['$uibModalInstance', 'items', function ($uibM
 
     modCtrl = this;
     modCtrl.items = items;
-    
-    
+
+
     modCtrl.ok = function () {
 
         angular.forEach(modCtrl.items, function (value, key) {
@@ -47,7 +68,7 @@ app.controller('modalController', ['$uibModalInstance', 'items', function ($uibM
             else
                 if ($('#' + key).hasClass('ui-draggable'))
                     $('#' + key).draggable('destroy');
-           
+
         });
 
         $uibModalInstance.close();
@@ -55,13 +76,9 @@ app.controller('modalController', ['$uibModalInstance', 'items', function ($uibM
     };
 
     modCtrl.cancel = function () {
-        
+
         $uibModalInstance.dismiss('cancel');
 
     };
 
 }]);
-
-//$('#icon1').draggable();
-//$('#icon2').draggable();
-//$('#icon3').draggable();

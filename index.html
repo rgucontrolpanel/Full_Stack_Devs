@@ -5,111 +5,66 @@
 		<meta charset="utf-8" >
 		<title>The Desk</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-		
-		<script
-			  src="https://code.jquery.com/jquery-1.7.1.js"
-			  integrity="sha256-n8wkEJNAWUaIUDnfQoz6fwBRofK9vMWjE6F3qeNfiAY="
-			  crossorigin="anonymous">
-		</script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			  
-		<style>
-		
-			.main{
-				display: flex;
-				height: 800px;
-			}
-			
-			.icon{
-			
-				height: 100px;
-				width: 100px;
-				background-color: black;
-				position: absolute;
-				
-			}
-			
-			body{
-			
-				//background-image: url("images/desk.jpg");
-				
-			}
-			
-			#icon1{
-				background-image: url("images/radio.png");
-				top: 240px;
-				right: 60px;
-			}
-			
-			#icon2{
-				background-image: url("images/ball.png");
-				top: 120px; 
-				left: 240px;
-			}
-			
-			#icon3{
-				background-image: url("images/calendar.png");
-				top: 620px; 
-				left: 740px;
-			}
-		
-		</style>
-		
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+
 	</head>
-	
+
     <body ng-app="mainApp" ng-controller="mainController as vm">
 
         <div class="main">
 
-            <div class="icon" id="icon1"></div>
-            <div class="icon" id="icon2"></div>
-            <div class="icon" id="icon3"></div>
+						<div ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
+								data-toggle="tooltip" data-placement="bottom" title="{{item.description}}" ng-show="item.checked">
+						</div>
 
         </div>
 
-
-        <button class="btn btn-default" ng-click="vm.openModal()">Click</button>
-
-
-
+        <button id="config-btn" class="btn btn-default" ng-click="vm.openModal()"
+					data-toggle="tooltip" data-placement="bottom" title="Config">
+				</button>
 
         <script type="text/ng-template" id="myTemplate.html">
             <div class="modal-header">
                 <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
             </div>
             <div class="modal-body" id="modal-body">
-                
+
                 <div class="row">
 
                     <div class="col-md-6">
 
-                        <input id="it1" name="it1" type="checkbox" ng-model="vm.items.icon1" />
-                        <label for="it1">Radio</label><br />
-                        <input id="it2" name="it2" type="checkbox" ng-model="vm.items.icon2" />
-                        <label for="it2">Ball</label><br />
-                        <input id="it3" name="it3" type="checkbox" ng-model="vm.items.icon3" />
-                        <label for="it3">Calendar</label><br />
-                        <input id="it4" name="it4" type="checkbox" ng-model="vm.items.it4" />
-                        <label for="it4">Item 4</label><br />
+												<ul ng-repeat="item in vm.items track by $index" ng-if="$index < (vm.items.length / 2)">
+
+													<li class="category-li">
+														<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
+															ng-disabled="vm.categoriesCount > 4 && !item.checked" />
+														<label for="it{{$index + 1}}">{{item.description}}</label><br />
+													</li>
+
+												</ul>
 
                     </div>
 
                     <div class="col-md-6">
 
-                        <input id="it5" name="it5" type="checkbox" ng-model="vm.items.it5" />
-                        <label for="it5">Item 5</label><br />
-                        <input id="it6" name="it6" type="checkbox" ng-model="vm.items.it6" />
-                        <label for="it6">Item 6</label><br />
-                        <input id="it7" name="it7" type="checkbox" ng-model="vm.items.it7" />
-                        <label for="it7">Item 7</label><br />
-                        <input id="it8" name="it8" type="checkbox" ng-model="vm.items.it8" />
-                        <label for="it8">Item 8</label><br />
+											<ul ng-repeat="item in vm.items track by $index" ng-if="$index > (vm.items.length / 2 - 1)">
+
+												<li class="category-li">
+													<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
+														ng-disabled="vm.categoriesCount > 4 && !item.checked" />
+													<label for="it{{$index + 1}}">{{item.description}}</label><br />
+												</li>
+
+											</ul>
 
                     </div>
 
                 </div>
-                
+
             </div>
+
+						<div class="alert alert-warning" role="alert" ng-show="vm.categoriesCount > 4">You can check up to 5 categories.</div>
+
             <div class="modal-footer">
                 <button class="btn btn-primary" type="button" ng-click="modCtrl.ok()">OK</button>
                 <button class="btn btn-warning" type="button" ng-click="modCtrl.cancel()">Cancel</button>
@@ -117,19 +72,18 @@
         </script>
 
 
-        <script src="scripts/jquery.min.js"></script>
-        <script src="scripts/jquery-ui.js"></script>
-        <script src="scripts/angular.js"></script>
-        <script src="scripts/app.js"></script>
-        <script src="scripts/ui-bootstrap.js"></script>
-        <script src="scripts/ui-bootstrap.min.js"></script>
-        <script src="scripts/angular.animate.min.js"></script>
-        <script src="scripts/angular.touch.min.js"></script>     
-        <script src="scripts/bootstrap.js"></script>
-        <script src="scripts/bootstrap.min.js"></script>
-        <script src="scripts/ui-bootstrap-tpls.js"></script>
-        <script src="scripts/ui-bootstrap-tpls.min.js"></script>
-
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/ui-bootstrap.js"></script>
+        <script src="js/ui-bootstrap.min.js"></script>
+        <script src="js/angular.animate.min.js"></script>
+        <script src="js/angular.touch.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/ui-bootstrap-tpls.js"></script>
+        <script src="js/ui-bootstrap-tpls.min.js"></script>
 
     </body>
 
