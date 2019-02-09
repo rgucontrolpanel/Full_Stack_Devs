@@ -26,8 +26,8 @@ app.controller('mainController', ['$scope', '$uibModal', function ($scope, $uibM
         var modalInstance = $uibModal.open({
 
             templateUrl: 'myTemplate.html',
-            controller: 'modalController',
-            controllerAs: 'modCtrl',
+            controller: 'categoriesController',
+            controllerAs: 'catCtrl',
             scope: $scope,
             resolve: {
                 items: function () {
@@ -51,34 +51,21 @@ app.controller('mainController', ['$scope', '$uibModal', function ($scope, $uibM
 
     };
 
-}]);
+    vm.openDetails = function(item){
 
-app.controller('modalController', ['$uibModalInstance', 'items', function ($uibModalInstance, items) {
+      var modalInstance = $uibModal.open({
 
-    modCtrl = this;
-    modCtrl.items = items;
+        templateUrl: 'details.html',
+        controller: 'detailsController',
+        controllerAs: 'detCtrl',
+        scope: $scope,
+        resolve:{
+          item: function(){
+            return item;
+          }
+        }
 
-
-    modCtrl.ok = function () {
-
-        angular.forEach(modCtrl.items, function (value, key) {
-
-
-          if (modCtrl.items[key].checked)
-            $('#icon' + parseInt(key + 1)).draggable();
-          else
-            if ($('#icon' + parseInt(key + 1)).hasClass('ui-draggable'))
-              $('#icon' + parseInt(key + 1)).draggable('destroy');
-
-        });
-
-        $uibModalInstance.close();
-
-    };
-
-    modCtrl.cancel = function () {
-
-        $uibModalInstance.dismiss('cancel');
+      }).result.then(function(){}, function(res){});
 
     };
 

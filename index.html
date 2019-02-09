@@ -14,7 +14,8 @@
         <div class="main">
 
 						<div ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
-								data-toggle="tooltip" data-placement="bottom" title="{{item.description}}" ng-show="item.checked">
+								data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
+								ng-show="item.checked" ng-dblclick="vm.openDetails(item.description)">
 						</div>
 
         </div>
@@ -25,7 +26,7 @@
 
         <script type="text/ng-template" id="myTemplate.html">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+                <h3 class="modal-title" id="modal-title">Choose categories</h3>
             </div>
             <div class="modal-body" id="modal-body">
 
@@ -66,11 +67,19 @@
 						<div class="alert alert-warning" role="alert" ng-show="vm.categoriesCount > 4">You can check up to 5 categories.</div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="modCtrl.ok()">OK</button>
-                <button class="btn btn-warning" type="button" ng-click="modCtrl.cancel()">Cancel</button>
+                <button class="btn btn-primary" type="button" ng-click="catCtrl.ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="catCtrl.cancel()">Cancel</button>
             </div>
         </script>
 
+				<script type="text/ng-template" id="details.html">
+					<div class="modal-header">{{detCtrl.item}}</div>
+					<div class="modal-body">{{detCtrl.item}}</div>
+					<div class="modal-footer">
+							<button class="btn btn-primary" type="button" ng-click="detCtrl.ok()">OK</button>
+							<button class="btn btn-warning" type="button" ng-click="detCtrl.cancel()">Cancel</button>
+					</div>
+				</script>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.js"></script>
@@ -84,6 +93,10 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/ui-bootstrap-tpls.js"></script>
         <script src="js/ui-bootstrap-tpls.min.js"></script>
+
+				<script src="js/controllers/details.controller.js"></script>
+				<script src="js/controllers/categories.controller.js"></script>
+
 
     </body>
 
