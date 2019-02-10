@@ -93,3 +93,11 @@ li{
   height: 50px;
   width: 50px;
 }
+
+#clock{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 31px;
+  right: 123px;
+}

@@ -7,6 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
 
+		<link rel="stylesheet" type="text/css" href="components/angular-clock/dist/angular-clock.css" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+
+
 	</head>
 
     <body ng-app="mainApp" ng-controller="mainController as vm">
@@ -23,6 +27,12 @@
         <button id="config-btn" class="btn btn-default" ng-click="vm.openModal()"
 					data-toggle="tooltip" data-placement="bottom" title="Config">
 				</button>
+
+				<div id="clock">
+					<ds-widget-clock theme="dark" show-secs="true" show-digital="false" show-analog="true"></ds-widget-clock>
+				</div>
+
+
 
         <script type="text/ng-template" id="myTemplate.html">
             <div class="modal-header">
@@ -74,7 +84,11 @@
 
 				<script type="text/ng-template" id="details.html">
 					<div class="modal-header">{{detCtrl.item}}</div>
-					<div class="modal-body">{{detCtrl.item}}</div>
+					<div class="modal-body">
+						{{detCtrl.item}}
+						<div><p ng-show="detCtrl.item === 'Weather'">{{detCtrl.weather}}</p></div>
+						<md-calendar ng-model="vm.birthday" ng-show="detCtrl.item === 'Calendar'"><md-calendar>
+					</div>
 					<div class="modal-footer">
 							<button class="btn btn-primary" type="button" ng-click="detCtrl.ok()">OK</button>
 							<button class="btn btn-warning" type="button" ng-click="detCtrl.cancel()">Cancel</button>
@@ -94,9 +108,13 @@
         <script src="js/ui-bootstrap-tpls.js"></script>
         <script src="js/ui-bootstrap-tpls.min.js"></script>
 
+				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-aria.min.js"></script>
+  			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.min.js"></script>
+  			<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
 				<script src="js/controllers/details.controller.js"></script>
 				<script src="js/controllers/categories.controller.js"></script>
-
+				<script src="components/angular-clock/dist/angular-clock.js"></script>
 
     </body>
 

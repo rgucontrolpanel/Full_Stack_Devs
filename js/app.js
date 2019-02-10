@@ -1,8 +1,22 @@
-var app = angular.module('mainApp', ['ui.bootstrap']);
+var app = angular.module('mainApp', ['ui.bootstrap', 'ds.clock', 'ngMaterial']);
 
-app.controller('mainController', ['$scope', '$uibModal', function ($scope, $uibModal) {
+app.controller('mainController', ['$scope', '$uibModal', '$http', function ($scope, $uibModal, $http) {
 
     vm = this;
+
+    vm.$onInit = function(){
+      angular.forEach(vm.items, function(value, key){
+        //$('#' + value.name).style.left = localStorage.getItem(value.name.id + '-X') + 'px';
+        //$('#' + value.name).style.top = localStorage.getItem(value.name.id + '-Y') + 'px';
+      });
+    }
+
+    $('#clock').draggable();
+
+    setInterval( function(){
+      console.clear();
+      console.log(new Date().toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
+    }, 1000);
 
     vm.categoriesCount = 0;
 
