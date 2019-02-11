@@ -80,7 +80,13 @@ li{
   left: 1131px;
 }
 
-#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10{
+#icon11{
+  background-image: url("../img/horoscope.png");
+  top: 233px;
+  left: 1131px;
+}
+
+#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10, #icon11{
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }

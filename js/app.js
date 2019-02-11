@@ -31,7 +31,8 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       { id: '6', name: 'icon7', checked: false, description: 'Music' },
       { id: '7', name: 'icon8', checked: false, description: 'News' },
       { id: '8', name: 'icon9', checked: false, description: 'Notes' },
-      { id: '9', name: 'icon10', checked: false, description: 'Money' }
+      { id: '9', name: 'icon10', checked: false, description: 'Money' },
+      { id: '10', name: 'icon11', checked: false, description: 'Horoscope' }
 
     ];
 
