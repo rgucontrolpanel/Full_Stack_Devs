@@ -54,7 +54,7 @@
 
 													<li class="category-li">
 														<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
-															 />
+															ng-disabled="vm.categoriesCount > 4 && !item.checked" />
 														<label for="it{{$index + 1}}">{{item.description}}</label><br />
 													</li>
 
@@ -68,7 +68,7 @@
 
 												<li class="category-li">
 													<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
-														 />
+														ng-disabled="vm.categoriesCount > 4 && !item.checked" />
 													<label for="it{{$index + 1}}">{{item.description}}</label><br />
 												</li>
 
