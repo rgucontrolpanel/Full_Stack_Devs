@@ -4,16 +4,12 @@
 }
 
 .icon{
-
-  height: 100px;
-  width: 100px;
-  background-color: black;
   position: absolute;
-
 }
 
 body{
   /* background-image: url("./images/desk.jpg"); */
+  background-color: #8DB0C4;
 }
 
 li{
@@ -21,72 +17,121 @@ li{
 }
 
 #icon1{
-  background-image: url("../img/email.png");
-  top: 33px;
-  left: 104px;
+  background-image: url("../img/accessories/instagram.png");
+  top: 72px;
+  left: 1325px;
+  height: 132px;
+  width: 112px;
 }
 
 #icon2{
-  background-image: url("../img/calendar.png");
-  top: 33px;
-  left: 219px;
+  background-image: url("../img/accessories/twitter.png");
+  top: 269px;
+  left: 1251px;
+  height: 221px;
+  width: 173px;
 }
 
 #icon3{
-  background-image: url("../img/album.png");
-  top: 33px;
-  left: 333px;
+  background-image: url("../img/accessories/calendar.png");
+  top: 266px;
+  left: 1617px;
+  height: 179px;
+  width: 112px;
 }
 
 #icon4{
-  background-image: url("../img/weather.png");
-  top: 33px;
-  left: 447px;
+  background-image: url("../img/accessories/cookbook.png");
+  top: 39px;
+  left: 1496px;
+  height: 166px;
+  width: 57px;
 }
 
 #icon5{
-  background-image: url("../img/facebook.png");
-  top: 33px;
-  left: 561px;
+  background-image: url("../img/accessories/frame.png");
+  top: 101px;
+  left: 932px;
+  height: 201px;
+  width: 176px;
 }
 
 #icon6{
-  background-image: url("../img/instagram.png");
-  top: 33px;
-  left: 675px;
+  background-image: url("../img/accessories/pig.png");
+  top: 446px;
+  left: 1014px;
+  height: 162px;
+  width: 124px;
 }
 
 #icon7{
-  background-image: url("../img/music.png");
-  top: 33px;
-  left: 789px;
+  background-image: url("../img/accessories/poster.png");
+  top: 268px;
+  left: 695px;
+  height: 140px;
+  width: 117px;
 }
 
 #icon8{
-  background-image: url("../img/news.png");
-  top: 33px;
-  left: 903px;
+  background-image: url("../img/accessories/radio.png");
+  top: 83px;
+  left: 1584px;
+  height: 121px;
+  width: 136px;
 }
 
 #icon9{
-  background-image: url("../img/notes.png");
-  top: 33px;
-  left: 1017px;
+  background-image: url("../img/accessories/starball.png");
+  top: 338px;
+  left: 352px;
+  height: 143px;
+  width: 136px;
+  z-index: 999;
 }
 
 #icon10{
-  background-image: url("../img/wallet.png");
-  top: 33px;
-  left: 1131px;
+  background-image: url("../img/accessories/facebook.png");
+  top: 434px;
+  left: 674px;
+  height: 174px;
+  width: 308px;
 }
+
+#desk{
+  background-image: url("../img/accessories/desk-transparent.png");
+  height: 336px;
+  width: 1314px;
+  top: 607px;
+  left: 414px;
+}
+
+#shelf{
+  background-image: url("../img/accessories/shelf.png");
+  width: 584px;
+  height: 73px;
+  top: 204px;
+  right: 144px;
+}
+
+#window{
+  background-image: url("../img/accessories/window.png");
+  height: 369px;
+  width: 291px;
+  left: 324px;
+  top: 144px;
+}
+
+/*
+
 
 #icon11{
-  background-image: url("../img/horoscope.png");
+  background-image: url("../img/accessories/starball.png");
   top: 233px;
   left: 1131px;
-}
+} */
 
-#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10, #icon11{
+/* #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10, #icon11{ */
+#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9{
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }

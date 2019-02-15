@@ -17,10 +17,14 @@
 
         <div class="main">
 
-						<div ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
-								data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
-								ng-show="item.checked" ng-dblclick="vm.openDetails(item.description)">
-						</div>
+					<div class="icon" id="desk"></div>
+					<div class="icon" id="window"></div>
+					<div class="icon" id="shelf"></div>
+
+					<div ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
+							data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
+							ng-show="item.checked" ng-dblclick="vm.openDetails(item.description)">
+					</div>
 
         </div>
 
@@ -28,9 +32,11 @@
 					data-toggle="tooltip" data-placement="bottom" title="Config">
 				</button>
 
+
+<!--
 				<div id="clock">
 					<ds-widget-clock theme="dark" show-secs="true" show-digital="false" show-analog="true"></ds-widget-clock>
-				</div>
+				</div> -->
 
 
 
@@ -44,11 +50,11 @@
 
                     <div class="col-md-6">
 
-												<ul ng-repeat="item in vm.items track by $index" ng-if="$index < (vm.items.length / 2 + 1)">
+												<ul ng-repeat="item in vm.items track by $index" ng-if="$index < (vm.items.length / 2)">
 
 													<li class="category-li">
 														<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
-															ng-disabled="vm.categoriesCount > 4 && !item.checked" />
+															 />
 														<label for="it{{$index + 1}}">{{item.description}}</label><br />
 													</li>
 
@@ -62,7 +68,7 @@
 
 												<li class="category-li">
 													<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
-														ng-disabled="vm.categoriesCount > 4 && !item.checked" />
+														 />
 													<label for="it{{$index + 1}}">{{item.description}}</label><br />
 												</li>
 
