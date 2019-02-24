@@ -14,8 +14,8 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
     $('#clock').draggable();
 
     setInterval( function(){
-      console.clear();
-      console.log(new Date().toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
+      //console.clear();
+      //console.log(new Date().toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric', second: 'numeric' }))
     }, 1000);
 
     vm.categoriesCount = 0;
@@ -25,7 +25,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       { id: '0', name: 'icon1', checked: false, description: 'Instagram' },
       { id: '1', name: 'icon2', checked: false, description: 'Twitter' },
       { id: '2', name: 'icon3', checked: false, description: 'Calendar' },
-      { id: '3', name: 'icon4', checked: false, description: 'Cookbook' },
+      { id: '3', name: 'icon4', checked: true, description: 'Cookbook' },
       { id: '4', name: 'icon5', checked: false, description: 'Photo Album' },
       { id: '5', name: 'icon6', checked: false, description: 'Pig' },
       { id: '6', name: 'icon7', checked: false, description: 'Sport' },
@@ -70,6 +70,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
         templateUrl: 'details.html',
         controller: 'detailsController',
         controllerAs: 'detCtrl',
+        windowClass: item === 'Cookbook' ? 'modal-cookbook' : 'modal-dialog',
         scope: $scope,
         resolve:{
           item: function(){

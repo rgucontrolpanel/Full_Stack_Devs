@@ -1,5 +1,4 @@
 .main{
-  display: flex;
   height: 800px;
 }
 
@@ -8,7 +7,6 @@
 }
 
 body{
-  /* background-image: url("./images/desk.jpg"); */
   background-color: #8DB0C4;
 }
 
@@ -115,24 +113,13 @@ li{
 
 #window{
   background-image: url("../img/accessories/window.png");
-  height: 369px;
   width: 291px;
+  height: 369px;
   left: 324px;
   top: 144px;
 }
 
-/*
-
-
-#icon11{
-  background-image: url("../img/accessories/starball.png");
-  top: 233px;
-  left: 1131px;
-} */
-
-/* #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10, #icon11{ */
 #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9{
-  background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }
 
