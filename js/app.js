@@ -22,16 +22,26 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
     vm.items = [
 
-      { id: '0', name: 'icon1', checked: false, description: 'Instagram' },
-      { id: '1', name: 'icon2', checked: false, description: 'Twitter' },
-      { id: '2', name: 'icon3', checked: false, description: 'Calendar' },
-      { id: '3', name: 'icon4', checked: false, description: 'Cookbook' },
-      { id: '4', name: 'icon5', checked: false, description: 'Photo Album' },
-      { id: '5', name: 'icon6', checked: false, description: 'Pig' },
-      { id: '6', name: 'icon7', checked: false, description: 'Sport' },
-      { id: '7', name: 'icon8', checked: false, description: 'Radio' },
-      { id: '8', name: 'icon9', checked: false, description: 'Horoscope' },
-      { id: '9', name: 'icon10', checked: false, description: 'Facebook' },
+      { id: '0', name: 'icon1', checked: true, description: 'Instagram',
+      src: "img/accessories/instagram.png" },
+      { id: '1', name: 'icon2', checked: true, description: 'Twitter',
+      src: "img/accessories/twitter.png"  },
+      { id: '2', name: 'icon3', checked: true, description: 'Calendar',
+      src: "img/accessories/calendar.png"  },
+      { id: '3', name: 'icon4', checked: true, description: 'Cookbook',
+      src: "img/accessories/cookbook.png"  },
+      { id: '4', name: 'icon5', checked: true, description: 'Photo Album',
+      src: "img/accessories/frame.png"  },
+      { id: '5', name: 'icon6', checked: false, description: 'Pig',
+      src: "img/accessories/pig.png"  },
+      { id: '6', name: 'icon7', checked: false, description: 'Sport',
+      src: "img/accessories/poster.png"  },
+      { id: '7', name: 'icon8', checked: false, description: 'Radio',
+      src: "img/accessories/radio.png"  },
+      { id: '8', name: 'icon9', checked: false, description: 'Horoscope',
+      src: "img/accessories/starball.png"  },
+      { id: '9', name: 'icon10', checked: false, description: 'Facebook',
+      src: "img/accessories/facebook.png"  },
       // { id: '10', name: 'icon11', checked: false, description: 'Horoscope' }
 
     ];

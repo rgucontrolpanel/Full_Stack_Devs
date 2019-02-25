@@ -1,5 +1,5 @@
 .main{
-  height: 800px;
+  height: 1200px;
 }
 
 .icon{
@@ -8,115 +8,122 @@
 
 body{
   background-color: #8DB0C4;
+  overflow: hidden;
 }
 
 li{
   list-style-type: none;
 }
 
+#logo-white{
+  opacity: 0.3;
+  top: 25px;
+  left: 25px;
+  width: 15%;
+  height: auto;
+
+}
+
 #icon1{
-  background-image: url("../img/accessories/instagram.png");
-  top: 72px;
-  left: 1325px;
-  height: 132px;
-  width: 112px;
+   /*Insta*/
+  top: 18%;
+  left: 60%;
+  width: 5%;
+  height: auto;
 }
 
 #icon2{
-  background-image: url("../img/accessories/twitter.png");
-  top: 269px;
-  left: 1251px;
-  height: 221px;
-  width: 173px;
+   /*Twitter*/
+  top: 36%;
+  left: 60%;
+  width: 8%;
+  height: auto;
 }
 
 #icon3{
-  background-image: url("../img/accessories/calendar.png");
-  top: 266px;
-  left: 1617px;
-  height: 179px;
-  width: 112px;
+   /*Calendar*/
+   top: 36%;
+   left: 76%;
+  width: 7%;
+  height: auto;
 }
 
 #icon4{
-  background-image: url("../img/accessories/cookbook.png");
-  top: 39px;
-  left: 1496px;
-  height: 166px;
-  width: 57px;
+   /*Cookbook*/
+   top: 13%;
+   left: 70%;
+  width: 3%;
+  height: auto;
 }
 
 #icon5{
-  background-image: url("../img/accessories/frame.png");
-  top: 101px;
-  left: 932px;
-  height: 201px;
-  width: 176px;
+   /*Photo(Frame)*/
+   top: 15%;
+   left: 45%;
+  width: 5%;
+  height: auto;
 }
 
 #icon6{
-  background-image: url("../img/accessories/pig.png");
-  top: 446px;
-  left: 1014px;
-  height: 162px;
-  width: 124px;
+   /*Pig*/
+   top: 70%;
+   left: 50%;
+  width: 5%;
+  height: auto;
 }
 
 #icon7{
-  background-image: url("../img/accessories/poster.png");
-  top: 268px;
+   /*Sport(poster)*/
+  top: 368px;
   left: 695px;
-  height: 140px;
-  width: 117px;
+  width: 5%;
+  height: auto;
 }
 
 #icon8{
-  background-image: url("../img/accessories/radio.png");
-  top: 83px;
+   /*Radio*/
+  top: 183px;
   left: 1584px;
-  height: 121px;
-  width: 136px;
+  width: 5%;
+  height: auto;
 }
 
 #icon9{
-  background-image: url("../img/accessories/starball.png");
-  top: 338px;
+   /*Horoscope(starball)*/
+  top: 438px;
   left: 352px;
-  height: 143px;
-  width: 136px;
+  width: 5%;
+  height: auto;
   z-index: 999;
 }
 
 #icon10{
-  background-image: url("../img/accessories/facebook.png");
-  top: 434px;
-  left: 674px;
-  height: 174px;
-  width: 308px;
+   /*Facebook*/
+   top: 70%;
+   left: 40%;
+  width: 5%;
+  height: auto;
 }
 
 #desk{
-  background-image: url("../img/accessories/desk-transparent.png");
-  height: 336px;
-  width: 1314px;
-  top: 607px;
-  left: 414px;
+  width: 70%;
+  height: auto;
+  top: 70%;
+  left: 20%;
 }
 
 #shelf{
-  background-image: url("../img/accessories/shelf.png");
-  width: 584px;
-  height: 73px;
-  top: 204px;
-  right: 144px;
+  width: 30%;
+  height: auto;
+  top: 30%;
+  right: 15%;
 }
 
 #window{
-  background-image: url("../img/accessories/window.png");
-  width: 291px;
-  height: 369px;
-  left: 324px;
-  top: 144px;
+  width: 15%;
+  height: auto;
+  left: 15%;
+  top: 20%;
 }
 
 #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9{

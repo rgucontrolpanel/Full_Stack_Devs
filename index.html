@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/modals.css" />
 
 		<link rel="stylesheet" type="text/css" href="components/angular-clock/dist/angular-clock.css" />
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	</head>
 
@@ -17,14 +17,16 @@
 
         <div class="main">
 
-					<div class="icon" id="desk"></div>
-					<div class="icon" id="window"></div>
-					<div class="icon" id="shelf"></div>
+					<img src ="img/accessories/desk-transparent.png" class="icon" id="desk" >
+					<img src ="img/accessories/window.png" class="icon" id="window" >
+					<img src ="img/accessories/shelf.png" class="icon" id="shelf" >
+					<img src ="img/accessories/logo-white.png" class="icon" id="logo-white" >
 
-					<div ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
-							data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
-							ng-show="item.checked" ng-dblclick="vm.openDetails(item.description)">
 					</div>
+
+					<img ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
+							data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
+							ng-show="item.checked" ng-dblclick="vm.openDetails(item.description)" src = "{{item.src}}">
 
         </div>
 
