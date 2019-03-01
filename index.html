@@ -201,9 +201,16 @@
 					</div>
 						<!-- end of cookbook modal -->
 
-					<div class="modal-body" ng-show="detCtrl.item === ''"></div>
+					<div class="modal-body" ng-show="detCtrl.item === 'Photo Album'">
 
-					<div class="modal-body" ng-show="detCtrl.item === ''"></div>
+					</div>
+
+					<div class="modal-body" ng-show="detCtrl.item === 'Pig'">
+						<label for="stock-select">Choose a company for details</label>
+						<select id="stock-select" class="form-control" ng-model="detCtrl.selectedCompany"
+							ng-options="s as s.symbol + ' -- ' + s.name for s in detCtrl.stockItems" ng-change="detCtrl.getCompanyDetails(detCtrl.selectedCompany.symbol)"></select><br />
+						<p>Selected comapny: {{detCtrl.selectedCompany.name}}</p>
+					</div>
 
 					<div class="modal-body" ng-show="detCtrl.item === ''"></div>
 					<!-- end of modals for categories -->
