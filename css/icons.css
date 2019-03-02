@@ -15,27 +15,29 @@ li{
   list-style-type: none;
 }
 
+
+
 #logo-white{
   opacity: 0.3;
   top: 25px;
   left: 25px;
-  width: 15%;
+  width: 10%;
   height: auto;
 
 }
 
 #icon1{
    /*Insta*/
-  top: 18%;
-  left: 60%;
-  width: 5%;
+  top: 15%;
+  left: 58%;
+  width: 6%;
   height: auto;
 }
 
 #icon2{
    /*Twitter*/
   top: 36%;
-  left: 60%;
+  left: 63%;
   width: 8%;
   height: auto;
 }
@@ -50,7 +52,7 @@ li{
 
 #icon4{
    /*Cookbook*/
-   top: 13%;
+   top: 12%;
    left: 70%;
   width: 3%;
   height: auto;
@@ -60,49 +62,48 @@ li{
    /*Photo(Frame)*/
    top: 15%;
    left: 45%;
-  width: 5%;
+  width: 8%;
   height: auto;
 }
 
 #icon6{
    /*Pig*/
-   top: 70%;
-   left: 50%;
-  width: 5%;
-  height: auto;
+   width: 6%;
+   height: auto;
+   left: 55%;
+   top: 54%;
 }
 
 #icon7{
    /*Sport(poster)*/
-  top: 368px;
-  left: 695px;
-  width: 5%;
+   top: 20%;
+   left: 32%;
+  width: 6%;
   height: auto;
 }
 
 #icon8{
    /*Radio*/
-  top: 183px;
-  left: 1584px;
-  width: 5%;
-  height: auto;
+   top: 15%;
+   left: 75%;
+   width: 8%;
+   height: auto;
 }
 
 #icon9{
    /*Horoscope(starball)*/
-  top: 438px;
-  left: 352px;
-  width: 5%;
-  height: auto;
-  z-index: 999;
+   width: 6%;
+   height: auto;
+   left: 16%;
+   top: 38%;
 }
 
 #icon10{
    /*Facebook*/
-   top: 70%;
-   left: 40%;
-  width: 5%;
-  height: auto;
+   width: 15%;
+   height: auto;
+   left: 37%;
+   top: 53%;
 }
 
 #desk{
@@ -115,7 +116,7 @@ li{
 #shelf{
   width: 30%;
   height: auto;
-  top: 30%;
+  top: 29%;
   right: 15%;
 }
 
@@ -123,10 +124,10 @@ li{
   width: 15%;
   height: auto;
   left: 15%;
-  top: 20%;
+  top: 15%;
 }
 
-#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9{
+#icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9, #icon10{
   border-radius: 10px;
 }
 

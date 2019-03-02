@@ -1,0 +1,17 @@
+<div class="modal-header">{{vm.item}}</div>
+
+<div class="modal-body" id="market-stock-modal">
+
+  <div>
+    <label for="stock-select">Choose a company for details</label>
+    <select id="stock-select" class="form-control" ng-model="vm.selectedCompany"
+      ng-options="s as s.symbol + ' -- ' + s.name for s in vm.stockItems" ng-change="vm.getCompanyDetails(vm.selectedCompany.symbol)"></select><br />
+      <p>Selected company: {{vm.selectedCompany.name}}</p>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>

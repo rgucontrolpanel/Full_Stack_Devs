@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Choose categories</h3>
+</div>
+
+<div class="modal-body" id="config-body">
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <ul ng-repeat="item in vm.items track by $index" ng-if="$index < (vm.items.length / 2)">
+
+              <li class="category-li">
+                <input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
+                  ng-disabled="vm.categoriesCount > 4 && !item.checked" />
+                <label for="it{{$index + 1}}">{{item.description}}</label><br />
+              </li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-md-6">
+
+          <ul ng-repeat="item in vm.items track by $index" ng-if="$index > (vm.items.length / 2 - 1)">
+
+            <li class="category-li">
+              <input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
+                ng-disabled="vm.categoriesCount > 4 && !item.checked" />
+              <label for="it{{$index + 1}}">{{item.description}}</label><br />
+            </li>
+
+          </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="alert alert-warning" role="alert" ng-show="vm.categoriesCount > 4">You can check up to 5 categories.</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="catCtrl.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="catCtrl.cancel()">Cancel</button>
+</div>

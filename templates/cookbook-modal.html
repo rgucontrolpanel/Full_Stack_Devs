@@ -1,0 +1,71 @@
+<div class="modal-header">{{vm.item}}</div>
+
+<div class="modal-body" id="cookbook-modal">
+  <div id="selects">
+    <span class="cookbook-ing-span">
+      <label for="ing1">Select first ingredient</label>
+        <select id="ing1" class="form-control ing-select" ng-model="vm.ing1" ng-options="i as i for i in vm.items1"></select>
+    </span><br />
+    <span class="cookbook-ing-span">
+      <label for="ing2">Select second ingredient</label>
+      <select id="ing2" class="form-control ing-select" ng-model="vm.ing2" ng-options="i as i for i in vm.items2"></select>
+    </span><br />
+    <span class="cookbook-ing-span">
+      <label for="ing3">Select third ingredient</label>
+      <select id="ing3" class="form-control ing-select" ng-model="vm.ing3" ng-options="i as i for i in vm.items3"></select>
+    </span>
+    <button class="btn btn-primary" ng-click="vm.searchForRecipes()">Search for recipes</button>
+  </div>
+
+  <div id="recipes">
+    <div class="row recipe">
+      <div class="recipe-body" ng-repeat="r in vm.recipes track by $index" ng-if="$index >= 0 &amp;&amp; $index &lt; 3">
+        <h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
+        <img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
+        <span class="recipe-body-bottom">
+          <button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
+          <button class="btn" tooltip-placement="bottom" uib-tooltip="{{vm.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
+        </span>
+        <span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
+      </div>
+    </div>
+    <div class="row recipe">
+      <div class="recipe-body" ng-repeat="r in vm.recipes track by $index" ng-if="$index > 2 &amp;&amp; $index &lt; 6">
+        <h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
+        <img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
+        <span class="recipe-body-bottom">
+          <button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
+          <button class="btn" tooltip-placement="bottom" uib-tooltip="{{vm.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
+        </span>
+        <span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
+      </div>
+    </div>
+    <div class="row recipe">
+      <div class="recipe-body" ng-repeat="r in vm.recipes track by $index" ng-if="$index > 5 &amp;&amp; $index &lt; 9">
+        <h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
+        <img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
+        <span class="recipe-body-bottom">
+          <button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
+          <button class="btn" tooltip-placement="bottom" uib-tooltip="{{vm.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
+        </span>
+        <span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
+      </div>
+    </div>
+    <div class="row recipe">
+      <div class="recipe-body" ng-repeat="r in vm.recipes track by $index" ng-if="$index > 8 &amp;&amp; $index &lt; 12">
+        <h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
+        <img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
+        <span class="recipe-body-bottom">
+          <button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
+          <button class="btn" tooltip-placement="bottom" uib-tooltip="{{vm.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
+        </span>
+        <span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>

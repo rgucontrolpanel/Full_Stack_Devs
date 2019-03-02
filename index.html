@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="css/modals.css" />
+		<link rel="stylesheet" type="text/css" href="css/photo-album.css" />
 
 		<link rel="stylesheet" type="text/css" href="components/angular-clock/dist/angular-clock.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +23,9 @@
 					<img src ="img/accessories/shelf.png" class="icon" id="shelf" >
 					<img src ="img/accessories/logo-white.png" class="icon" id="logo-white" >
 
-					</div>
-
 					<img ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
 							data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
-							ng-show="item.checked" ng-dblclick="vm.openDetails(item.description)" src = "{{item.src}}">
+							ng-show="item.checked" ng-dblclick="vm.openDetails(item)" src="{{item.src}}" />
 
         </div>
 
@@ -39,191 +38,6 @@
 				<!-- <div id="clock">
 					<ds-widget-clock theme="dark" show-secs="true" show-digital="false" show-analog="true"></ds-widget-clock>
 				</div> -->
-
-
-				<!-- CONFIG MODAL -->
-        <script type="text/ng-template" id="myTemplate.html">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">Choose categories</h3>
-            </div>
-            <div class="modal-body" id="modal-body">
-
-                <div class="row">
-
-                    <div class="col-md-6">
-
-												<ul ng-repeat="item in vm.items track by $index" ng-if="$index < (vm.items.length / 2)">
-
-													<li class="category-li">
-														<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
-															ng-disabled="vm.categoriesCount > 4 && !item.checked" />
-														<label for="it{{$index + 1}}">{{item.description}}</label><br />
-													</li>
-
-												</ul>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-											<ul ng-repeat="item in vm.items track by $index" ng-if="$index > (vm.items.length / 2 - 1)">
-
-												<li class="category-li">
-													<input id="it{{$index + 1}}" type="checkbox" ng-model="vm.items[$index].checked" ng-change="vm.checkCategories(item)"
-														ng-disabled="vm.categoriesCount > 4 && !item.checked" />
-													<label for="it{{$index + 1}}">{{item.description}}</label><br />
-												</li>
-
-											</ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-						<div class="alert alert-warning" role="alert" ng-show="vm.categoriesCount > 4">You can check up to 5 categories.</div>
-
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="catCtrl.ok()">OK</button>
-                <button class="btn btn-warning" type="button" ng-click="catCtrl.cancel()">Cancel</button>
-            </div>
-        </script>
-				<!-- END OF CONFIG MODAL -->
-
-
-
-				<!-- CATEGORIES MODALS -->
-				<script type="text/ng-template" id="details.html">
-					<div class="modal-header">{{detCtrl.item}}</div>
-
-					<!-- modals for specific category -->
-						<!-- weather modal -->
-					<div class="modal-body" ng-show="detCtrl.item === 'Weather'">
-							<p>{{detCtrl.weather}}</P>
-					</div>
-						<!-- weather modal -->
-
-						<!-- horoscope modal -->
-					<div class="modal-body" ng-show="detCtrl.item === 'Horoscope'">
-						<p><strong>{{detCtrl.sunsign}}</strong></p>
-						<p>{{detCtrl.horoscope}}</p>
-					</div>
-						<!-- end of horoscope modal -->
-
-						<!-- calendar modal -->
-					<div class="modal-body" ng-show="detCtrl.item === 'Calendar'">
-						<md-calendar ng-model="vm.birthday"><md-calendar>
-					</div>
-						<!-- end of calendar modal -->
-
-						<!-- sport modal -->
-					<div class="modal-body" id="sport-modal" ng-show="detCtrl.item === 'Sport'">
-
-						<ul>
-							<li ng-repeat="article in detCtrl.articles track by $index">
-								<div class="sport-article-body">
-									<p><strong>{{article.title}}</strong></p><br />
-									<p>{{article.description}}</p><br />
-									<img class="sport-article-img" alt="here goes image for article" src="{{article.urlToImage}}" /><br /><br />
-									<p><strong>Author:</strong> {{article.author}}</p><br />
-									<p><strong>Read more here:</strong><a href="{{article.url}}"> {{article.url}}</a></p><br />
-								</div>
-							</li>
-						</ul>
-
-					</div>
-						<!-- end of sport modal -->
-
-						<!-- cookbook modal -->
-					<div class="modal-body" id="cookbook" ng-show="detCtrl.item === 'Cookbook'">
-						<div id="selects">
-							<span class="cookbook-ing-span">
-								<label for="ing1">Select first ingredient</label>
-									<select id="ing1" class="form-control ing-select" ng-model="detCtrl.ing1" ng-options="i as i for i in detCtrl.items1"></select>
-							</span><br />
-							<span class="cookbook-ing-span">
-								<label for="ing2">Select second ingredient</label>
-								<select id="ing2" class="form-control ing-select" ng-model="detCtrl.ing2" ng-options="i as i for i in detCtrl.items2"></select>
-							</span><br />
-							<span class="cookbook-ing-span">
-								<label for="ing3">Select third ingredient</label>
-								<select id="ing3" class="form-control ing-select" ng-model="detCtrl.ing3" ng-options="i as i for i in detCtrl.items3"></select>
-							</span>
-							<button class="btn btn-primary" ng-click="detCtrl.searchForRecipes()">Search for recipes</button>
-						</div>
-						<div id="recipes">
-							<div class="row recipe">
-								<div class=recipe-body ng-repeat="r in detCtrl.recipes track by $index" ng-if="$index >= 0 && $index < 3">
-									<h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
-									<img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
-									<span class="recipe-body-bottom">
-										<button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
-										<button class="btn" tooltip-placement="bottom" uib-tooltip="{{detCtrl.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
-									</span>
-									<span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
-								</div>
-							</div>
-							<div class="row recipe">
-								<div class=recipe-body ng-repeat="r in detCtrl.recipes track by $index" ng-if="$index > 2 && $index < 6">
-									<h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
-									<img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
-									<span class="recipe-body-bottom">
-										<button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
-										<button class="btn" tooltip-placement="bottom" uib-tooltip="{{detCtrl.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
-									</span>
-									<span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
-								</div>
-							</div>
-							<div class="row recipe">
-								<div class=recipe-body ng-repeat="r in detCtrl.recipes track by $index" ng-if="$index > 5 && $index < 9">
-									<h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
-									<img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
-									<span class="recipe-body-bottom">
-										<button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
-										<button class="btn" tooltip-placement="bottom" uib-tooltip="{{detCtrl.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
-									</span>
-									<span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
-								</div>
-							</div>
-							<div class="row recipe">
-								<div class=recipe-body ng-repeat="r in detCtrl.recipes track by $index" ng-if="$index > 8 && $index < 12">
-									<h2><span class="label label-success recipe-label center-block"><strong>{{r.recipe.label}}</strong></span></h2>
-									<img class="img-responsive center-block" alt="recipe image goes here" src="{{r.recipe.image}}" />
-									<span class="recipe-body-bottom">
-										<button class="btn">Calories: <span class="badge">{{r.recipe.calories | number: 0}}</span></button>
-										<button class="btn" tooltip-placement="bottom" uib-tooltip="{{detCtrl.getIngredients(r.recipe.ingredients)}}">Ingredients <span class="badge">{{r.recipe.ingredients.length}}</span></button>
-									</span>
-									<span class="label label-default recipe-body-link">Full recipe here: <a href="{{r.recipe.url}}">{{r.recipe.source}}</a></span>
-								</div>
-							</div>
-						</div>
-					</div>
-						<!-- end of cookbook modal -->
-
-					<div class="modal-body" ng-show="detCtrl.item === 'Photo Album'">
-
-					</div>
-
-					<div class="modal-body" ng-show="detCtrl.item === 'Pig'">
-						<label for="stock-select">Choose a company for details</label>
-						<select id="stock-select" class="form-control" ng-model="detCtrl.selectedCompany"
-							ng-options="s as s.symbol + ' -- ' + s.name for s in detCtrl.stockItems" ng-change="detCtrl.getCompanyDetails(detCtrl.selectedCompany.symbol)"></select><br />
-						<p>Selected comapny: {{detCtrl.selectedCompany.name}}</p>
-					</div>
-
-					<div class="modal-body" ng-show="detCtrl.item === ''"></div>
-					<!-- end of modals for categories -->
-
-					<!-- modal footer -->
-					<div class="modal-footer">
-							<button class="btn btn-primary" type="button" ng-click="detCtrl.ok()">OK</button>
-							<button class="btn btn-warning" type="button" ng-click="detCtrl.cancel()">Cancel</button>
-					</div>
-					<!-- end of modal footer -->
-				</script>
-				<!-- END OF CATEGORIES MODALS -->
-
 
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.js"></script>
@@ -244,9 +58,23 @@
   			<script src="js/clock-libs/angular-material.min.js"></script>
 				<!-- angular libs used by clock -->
 
-				<script src="js/controllers/details.controller.js"></script>
+				<script src="js/controllers/weather.controller.js"></script>
 				<script src="js/controllers/categories.controller.js"></script>
 				<script src="components/angular-clock/dist/angular-clock.js"></script>
+
+				<!-- categories controllers -->
+				<script src="js/controllers/cookbook.controller.js"></script>
+				<script src="js/controllers/instagram.controller.js"></script>
+				<script src="js/controllers/tweetter.controller.js"></script>
+				<script src="js/controllers/calendar.controller.js"></script>
+				<script src="js/controllers/photo-album.controller.js"></script>
+				<script src="js/controllers/market-stock.controller.js"></script>
+				<script src="js/controllers/sport.controller.js"></script>
+				<script src="js/controllers/radio.controller.js"></script>
+				<script src="js/controllers/horoscope.controller.js"></script>
+				<script src="js/controllers/laptop.controller.js"></script>
+				<!-- end of categories controllers -->
+
 
     </body>
 

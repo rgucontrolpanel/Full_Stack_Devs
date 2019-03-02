@@ -1,0 +1,22 @@
+<div class="modal-header">{{vm.item}}</div>
+
+<div class="modal-body" id="sports-modal">
+
+  <ul>
+    <li ng-repeat="article in vm.articles track by $index">
+      <div class="sport-article-body">
+        <p><strong>{{article.title}}</strong></p><br />
+        <p>{{article.description}}</p><br />
+        <img class="sport-article-img" alt="here goes image for article" src="{{article.urlToImage}}" /><br /><br />
+        <p><strong>Author:</strong> {{article.author}}</p><br />
+        <p><strong>Read more here:</strong><a href="{{article.url}}"> {{article.url}}</a></p><br />
+      </div>
+    </li>
+  </ul>
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>

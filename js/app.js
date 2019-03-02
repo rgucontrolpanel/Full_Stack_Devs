@@ -2,14 +2,7 @@ var app = angular.module('mainApp', ['ui.bootstrap', 'ds.clock', 'ngMaterial']);
 
 app.controller('mainController', ['$scope', '$uibModal', '$http', function ($scope, $uibModal, $http) {
 
-    vm = this;
-
-    vm.$onInit = function(){
-      angular.forEach(vm.items, function(value, key){
-        //$('#' + value.name).style.left = localStorage.getItem(value.name.id + '-X') + 'px';
-        //$('#' + value.name).style.top = localStorage.getItem(value.name.id + '-Y') + 'px';
-      });
-    }
+    var vm = this;
 
     //$('#clock').draggable();
 
@@ -22,27 +15,26 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
     vm.items = [
 
-      { id: '0', name: 'icon1', checked: false, description: 'Instagram',
-      src: "img/accessories/instagram.png" },
-      { id: '1', name: 'icon2', checked: false, description: 'Twitter',
-      src: "img/accessories/twitter.png" },
-      { id: '2', name: 'icon3', checked: false, description: 'Calendar',
-      src: "img/accessories/calendar.png" },
-      { id: '3', name: 'icon4', checked: false, description: 'Cookbook',
-      src: "img/accessories/cookbook.png" },
-      { id: '4', name: 'icon5', checked: false, description: 'Photo Album',
-      src: "img/accessories/frame.png" },
-      { id: '5', name: 'icon6', checked: true, description: 'Pig',
-      src: "img/accessories/pig.png" },
-      { id: '6', name: 'icon7', checked: false, description: 'Sport',
-      src: "img/accessories/poster.png" },
-      { id: '7', name: 'icon8', checked: false, description: 'Radio',
-      src: "img/accessories/radio.png" },
-      { id: '8', name: 'icon9', checked: false, description: 'Horoscope',
-      src: "img/accessories/starball.png" },
-      { id: '9', name: 'icon10', checked: false, description: 'Facebook',
-      src: "img/accessories/facebook.png" },
-      // { id: '10', name: 'icon11', checked: false, description: 'Horoscope' }
+      { id: '0', name: 'icon1', checked: true, description: 'Instagram',
+      src: "img/accessories/instagram.png", templateUrl: 'insta-modal.html' },
+      { id: '1', name: 'icon2', checked: true, description: 'Tweetter',
+      src: "img/accessories/tweetter.png", templateUrl: 'tweet-modal.html' },
+      { id: '2', name: 'icon3', checked: true, description: 'Calendar',
+      src: "img/accessories/calendar.png", templateUrl: 'calendar-modal.html' },
+      { id: '3', name: 'icon4', checked: true, description: 'Cookbook',
+      src: "img/accessories/cookbook.png", templateUrl: 'cookbook-modal.html' },
+      { id: '4', name: 'icon5', checked: true, description: 'Photo Album',
+      src: "img/accessories/frame.png", templateUrl: 'photo-album-modal.html' },
+      { id: '5', name: 'icon6', checked: true, description: 'Market Stock',
+      src: "img/accessories/pig.png", templateUrl: 'market-stock-modal.html' },
+      { id: '6', name: 'icon7', checked: true, description: 'Sport',
+      src: "img/accessories/poster.png", templateUrl: 'sports-modal.html' },
+      { id: '7', name: 'icon8', checked: true, description: 'Radio',
+      src: "img/accessories/radio.png", templateUrl: 'radio-modal.html' },
+      { id: '8', name: 'icon9', checked: true, description: 'Horoscope',
+      src: "img/accessories/starball.png", templateUrl: 'horoscope-modal.html' },
+      { id: '9', name: 'icon10', checked: true, description: 'Laptop',
+      src: "img/accessories/laptop.png", templateUrl: 'face-modal.html' },
 
     ];
 
@@ -50,7 +42,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
         var modalInstance = $uibModal.open({
 
-            templateUrl: 'myTemplate.html',
+            templateUrl: 'templates/config-modal.html',
             controller: 'categoriesController',
             controllerAs: 'catCtrl',
             scope: $scope,
@@ -73,18 +65,40 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
     };
 
+    var getModal = function(item){
+      return 'templates/' + item.templateUrl;
+    }
+
+    var getModalClass = function(item){
+      return item.templateUrl.substring(0, item.templateUrl.indexOf('.'));
+    }
+
+    var getController = function(item){
+
+      if(item.description !== 'Market Stock' && item.description !== 'Photo Album'){
+        return item.description.toLowerCase() + 'Controller';
+      }
+      else{
+
+        var parts = item.description.split(' ');
+        parts[0] = parts[0].toLowerCase();
+        return parts[0] + '' + parts[1] + 'Controller';
+
+      }
+    }
+
     vm.openDetails = function(item){
 
       var modalInstance = $uibModal.open({
 
-        templateUrl: 'details.html',
-        controller: 'detailsController',
-        controllerAs: 'detCtrl',
-        windowClass: item === 'Cookbook' ? 'modal-cookbook' : 'modal-dialog',
+        templateUrl: getModal(item),
+        controller: getController(item),
+        controllerAs: 'vm',
+        windowClass: getModalClass(item),
         scope: $scope,
         resolve:{
           item: function(){
-            return item;
+            return item.description;
           }
         }
 

@@ -1,0 +1,27 @@
+<div class="modal-header">{{vm.item}}</div>
+
+<div class="modal-body" id="photo-album-modal">
+
+  <div class="container slider">
+
+    <img ng-repeat="photo in vm.photos" class="slide" ng-swipe-right="vm.showPrev()" ng-swipe-left="vm.showNext()"
+      ng-show="vm.isActive($index)" ng-src="{{photo.src}}" />
+
+    <a class="arrow prev" href="#" ng-click="vm.showPrev()"></a>
+    <a class="arrow next" href="#" ng-click="vm.showNext()"></a>
+
+    <ul class="nav">
+
+      <li ng-repeat="photo in vm.photos" ng-class="{'active' :isActive($index)}">
+        <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" />
+
+    </ul>
+
+  </div>
+
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>
