@@ -7,6 +7,9 @@
     <select id="stock-select" class="form-control" ng-model="vm.selectedCompany"
       ng-options="s as s.symbol + ' -- ' + s.name for s in vm.stockItems" ng-change="vm.getCompanyDetails(vm.selectedCompany.symbol)"></select><br />
       <p>Selected company: {{vm.selectedCompany.name}}</p>
+
+      <canvas id="line" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options"
+        chart-dataset-override="vm.datasetOverride" chart-click="vm.onClick"></canvas>
   </div>
 
 </div>

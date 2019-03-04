@@ -4,6 +4,36 @@ angular.module('mainApp').controller('marketStockController', ['$uibModalInstanc
 
   vm.stockItems = [];
 
+
+  vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  vm.series = ['Series A', 'Series B'];
+  vm.data = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+  vm.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+  vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+  vm.options = {
+    scales: {
+      yAxes: [
+        {
+          id: 'y-axis-1',
+          type: 'linear',
+          display: true,
+          position: 'left'
+        },
+        {
+          id: 'y-axis-2',
+          type: 'linear',
+          display: true,
+          position: 'right'
+        }
+      ]
+    }
+  };
+
   var stockApi = {
     method: 'get',
     url: 'https://cors-anywhere.herokuapp.com/https://cloud.iexapis.com/beta/ref-data/symbols?token=sk_c131aad5c80d4c77bcdfb71dea77cf3a',
@@ -36,7 +66,7 @@ angular.module('mainApp').controller('marketStockController', ['$uibModalInstanc
     console.log(symbol);
     var stockApi = {
       method: 'get',
-      url: 'https://cors-anywhere.herokuapp.com/https://cloud.iexapis.com/beta/stock/' + symbol + '/company/?token=sk_c131aad5c80d4c77bcdfb71dea77cf3a',
+      url: 'https://cors-anywhere.herokuapp.com/https://cloud.iexapis.com/beta/stock/' + symbol + '/chart/1y/?token=sk_c131aad5c80d4c77bcdfb71dea77cf3a',
       headers:{
         'Access-Control-Allow-Origin': '*'
       }

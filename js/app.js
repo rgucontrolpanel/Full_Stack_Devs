@@ -1,4 +1,4 @@
-var app = angular.module('mainApp', ['ui.bootstrap', 'ds.clock', 'ngMaterial']);
+var app = angular.module('mainApp', ['ui.bootstrap', 'ds.clock', 'ngMaterial', 'chart.js']);
 
 app.controller('mainController', ['$scope', '$uibModal', '$http', function ($scope, $uibModal, $http) {
 
@@ -15,25 +15,25 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
     vm.items = [
 
-      { id: '0', name: 'icon1', checked: true, description: 'Instagram',
+      { id: '0', name: 'icon1', checked: false, description: 'Instagram',
       src: "img/accessories/instagram.png", templateUrl: 'insta-modal.html' },
-      { id: '1', name: 'icon2', checked: true, description: 'Tweetter',
+      { id: '1', name: 'icon2', checked: false, description: 'Tweetter',
       src: "img/accessories/tweetter.png", templateUrl: 'tweet-modal.html' },
-      { id: '2', name: 'icon3', checked: true, description: 'Calendar',
+      { id: '2', name: 'icon3', checked: false, description: 'Calendar',
       src: "img/accessories/calendar.png", templateUrl: 'calendar-modal.html' },
-      { id: '3', name: 'icon4', checked: true, description: 'Cookbook',
+      { id: '3', name: 'icon4', checked: false, description: 'Cookbook',
       src: "img/accessories/cookbook.png", templateUrl: 'cookbook-modal.html' },
-      { id: '4', name: 'icon5', checked: true, description: 'Photo Album',
+      { id: '4', name: 'icon5', checked: false, description: 'Photo Album',
       src: "img/accessories/frame.png", templateUrl: 'photo-album-modal.html' },
-      { id: '5', name: 'icon6', checked: true, description: 'Market Stock',
+      { id: '5', name: 'icon6', checked: false, description: 'Market Stock',
       src: "img/accessories/pig.png", templateUrl: 'market-stock-modal.html' },
-      { id: '6', name: 'icon7', checked: true, description: 'Sport',
+      { id: '6', name: 'icon7', checked: false, description: 'Sport',
       src: "img/accessories/poster.png", templateUrl: 'sports-modal.html' },
-      { id: '7', name: 'icon8', checked: true, description: 'Radio',
+      { id: '7', name: 'icon8', checked: false, description: 'Radio',
       src: "img/accessories/radio.png", templateUrl: 'radio-modal.html' },
-      { id: '8', name: 'icon9', checked: true, description: 'Horoscope',
+      { id: '8', name: 'icon9', checked: false, description: 'Horoscope',
       src: "img/accessories/starball.png", templateUrl: 'horoscope-modal.html' },
-      { id: '9', name: 'icon10', checked: true, description: 'Laptop',
+      { id: '9', name: 'icon10', checked: false, description: 'Laptop',
       src: "img/accessories/laptop.png", templateUrl: 'face-modal.html' },
 
     ];
