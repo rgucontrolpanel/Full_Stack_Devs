@@ -3,6 +3,9 @@ angular.module('mainApp').controller('instaController', ['$uibModalInstance', '$
   var vm = this;
   vm.item = item;
 
+  vm.date = new Date();
+  
+
   vm.ok = function () {
       $uibModalInstance.close();
   };

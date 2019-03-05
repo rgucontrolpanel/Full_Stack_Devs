@@ -5,6 +5,11 @@
   margin-right: 5%;
 }
 
+.modal-footer button{
+  float: right;
+  bottom: 0;
+}
+
 .modal-body#sport-modal .sport-article-body{
   border: 1px solid black;
   border-radius: 10px;
@@ -157,4 +162,45 @@
 
 .horoscope-modal .modal-dialog{
   width: 80%;
+}
+
+
+/* Instagram Gallery CSS */
+
+div.gallery {
+  align-items: center !important;
+  margin: auto;
+  max-width: 70%;
+  transition: 0.2s;
+}
+
+div.gallery img {
+  padding: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+div.desc {
+  padding: 15px;
+  margin: auto;
+  text-align: center;
+  font-style: italic;
+}
+
+#loveIt{
+  float: right;
+}
+
+#shareIt{
+  margin-right: 1%;
+  float: right;
+}
+
+#shareIt:hover {
+  background-color: RoyalBlue;
+}
+#loveIt:hover {
+  background-color: red;
 }

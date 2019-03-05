@@ -10,7 +10,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
     vm.items = [
 
-      { id: '0', name: 'icon1', checked: false, description: 'Insta',
+      { id: '0', name: 'icon1', checked: true, description: 'Insta',
       src: "img/accessories/insta.png", templateUrl: 'insta-modal.html' },
       { id: '1', name: 'icon2', checked: false, description: 'Tweetter',
       src: "img/accessories/tweetter.png", templateUrl: 'tweet-modal.html' },
