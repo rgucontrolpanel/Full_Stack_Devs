@@ -1,0 +1,56 @@
+<div class="modal-header">{{vm.item}}</div>
+
+<div class="modal-body" id="calendar-modal">
+  <div id="calendar-nav">
+
+    <div class="row">
+      <button class="btn btn-success" ng-click="vm.addEvent()" ng-show="!vm.add">Add event</button>
+    <div>
+
+    <div id="eventform" ng-show="vm.add" class="row calendar-top" novalidate>
+
+      <div class="col-md-4">
+        <input id="eventname" name="name" type="text" class="form-control" ng-model="vm.eventname" placeholder="Enter event name here..." ng-required="true"/>
+      </div>
+
+      <div class="col-md-3">
+        <p class="input-group">
+          <input name="start" type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="vm.eventstart"
+            is-open="vm.pop1.opened" datepicker-options="vm.dtoptions" ng-required="true" placeholder="Select start date..."/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="vm.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <p class="input-group">
+          <input name="end" type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="vm.eventend"
+            is-open="vm.pop2.opened" datepicker-options="vm.dtoptions" ng-required="true" placeholder="Select end date..." />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="vm.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-default" ng-click="vm.confirmEvent()" ng-show="vm.add">Add event</button>
+      </div>
+
+      <div class="col-lg-12">
+        <span ng-show="vm.namerequired" class="alert alert-warning" role="alert">Event name is required. Add event name.</span>
+        <span ng-show="vm.startrequired" class="alert alert-warning" role="alert">Event start date is required. Add event start date.</span>
+        <span ng-show="vm.endrequired" class="alert alert-warning" role="alert">Event end date is required. Add event end date.</span>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div id="calendar" ui-calendar="vm.uiConfig.calendar" ng-model="vm.eventSources"></div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>

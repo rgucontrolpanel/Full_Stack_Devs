@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>The Desk</title>
+
+		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css" />
+		<link rel="stylesheet" type="text/css" href="node_modules/angular-clock/dist/angular-clock.css" />
+		<link rel="stylesheet" type="text/css" href="node_modules/fullcalendar/dist/fullcalendar.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/modals.css" />
+		<link rel="stylesheet" type="text/css" href="css/photo-album.css" />
+
+	</head>
+
+    <body ng-app="mainApp" ng-controller="mainController as vm">
+
+        <div class="main">
+
+					<img src ="img/accessories/desk-transparent.png" class="icon" id="desk" >
+					<img src ="img/accessories/window.png" class="icon" id="window" >
+					<img src ="img/accessories/shelf.png" class="icon" id="shelf" >
+					<img src ="img/accessories/logo-white.png" class="icon" id="logo-white" >
+
+					<img ng-repeat="item in vm.items track by $index" class="icon" id="icon{{$index+1}}"
+							data-toggle="tooltip" data-placement="bottom" title="{{item.description}}"
+							ng-show="item.checked" ng-dblclick="vm.openDetails(item)" src="{{item.src}}" />
+
+        </div>
+
+        <button id="config-btn" class="btn btn-default" ng-click="vm.openModal()"
+					data-toggle="tooltip" data-placement="bottom" title="Config">
+				</button>
+
+
+
+				<!-- <div id="clock">
+					<ds-widget-clock theme="dark" show-secs="true" show-digital="false" show-analog="true"></ds-widget-clock>
+				</div> -->
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+        <script src="node_modules/angular-touch/angular-touch.min.js"></script>
+				<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+
+				<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+				<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+				<!-- angular libs used by clock -->
+				<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+  			<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+  			<script src="node_modules/angular-material/angular-material.min.js"></script>
+				<!-- angular libs used by clock -->
+
+				<script src="node_modules/angular-clock/dist/angular-clock.js"></script>
+
+				<!-- chart libraries -->
+				<script src="node_modules/chart.js/dist/Chart.min.js"></script>
+				<script src="node_modules/angular-chart.js/dist/angular-chart.js"></script>
+				<!-- end of chart libraries -->
+
+				<script src="node_modules/moment/min/moment.min.js"></script>
+				<script src="node_modules/angular-ui-calendar/src/calendar.js"></script>
+				<script src="node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
+				<script src="node_modules/fullcalendar/dist/gcal.js"></script>
+
+				<script src="js/app.js"></script>
+
+				<script src="js/controllers/weather.controller.js"></script>
+				<script src="js/controllers/categories.controller.js"></script>
+
+				<!-- categories controllers -->
+				<script src="js/controllers/cookbook.controller.js"></script>
+				<script src="js/controllers/instagram.controller.js"></script>
+				<script src="js/controllers/tweetter.controller.js"></script>
+				<script src="js/controllers/calendar.controller.js"></script>
+				<script src="js/controllers/photo-album.controller.js"></script>
+				<script src="js/controllers/market-stock.controller.js"></script>
+				<script src="js/controllers/sport.controller.js"></script>
+				<script src="js/controllers/radio.controller.js"></script>
+				<script src="js/controllers/horoscope.controller.js"></script>
+				<script src="js/controllers/laptop.controller.js"></script>
+				<!-- end of categories controllers -->
+
+    </body>
+
+</html>
