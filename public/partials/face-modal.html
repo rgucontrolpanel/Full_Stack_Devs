@@ -1,11 +1,70 @@
 <div class="modal-header">{{vm.item}}</div>
 
-<div class="modal-body" id="horoscope-modal">
+<div class="modal-body" id="face-modal">
 
-  <div>face album here</div>
+  <div class="contactsFB">
+    <table>
+      <tr>
+        <th>Online contacts</th>
+        <th>Message</th>
+      </tr>
+      <tr>
+        <td>Alessandro Del Piero</td>
+        <td><input type="submit" value="..."></td>
+      </tr>
+      <tr>
+        <td>Iga Ninja</td>
+        <td><input type="submit" value="..."></td>
+      </tr>
+      <tr>
+        <td>Justeen Grindewald</td>
+        <td><input type="submit" value="..."></td>
+      </tr>
+      <tr>
+        <td>Michelangelo</td>
+        <td><input type="submit" value="..."></td>
+      </tr>
+      <tr>
+        <td>Thomas Aquinas</td>
+        <td><input type="submit" value="..."></td>
+      </tr>
+      <tr>
+        <td>Enzo Ferrari</td>
+        <td><input type="submit" value="..."></td>
+      </tr>
+    </table>
+</div>
+<br>
 
+<div id="formContainer">
+
+  <form action="">
+      <div class="mood-row">
+        <br>
+          <label><b>New Facebook post</b></label>
+          <select id="country" name="Select your Mood">
+            <option value="mood1">Happy</option>
+            <option value="mood2">Busy</option>
+            <option value="mood3">Excited</option>
+            <option value="mood4">Sad</option>
+            <option value="mood5">Sleepy</option>
+          </select>
+      </div>
+          <div class="text-row">
+            <br>
+            <textarea id="textArea" type="text" name="postContent" placeholder="What's on your mind?"></textarea>
+          </div>
+          <br>
+
+          <div class="submitBtn">
+            <input type="submit" value="Submit">
+          </div>
+
+      </form>
+    </div>
 </div>
 
+<br>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
     <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>

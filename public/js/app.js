@@ -28,7 +28,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       src: "img/accessories/radio.png", templateUrl: 'radio-modal.html' },
       { id: '8', name: 'icon9', checked: false, description: 'Horoscope',
       src: "img/accessories/starball.png", templateUrl: 'horoscope-modal.html' },
-      { id: '9', name: 'icon10', checked: false, description: 'Laptop',
+      { id: '9', name: 'icon10', checked: true, description: 'Laptop',
       src: "img/accessories/laptop.png", templateUrl: 'face-modal.html' },
 
     ];
