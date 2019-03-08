@@ -3,7 +3,7 @@ angular.module('mainApp').controller('laptopController', ['$uibModalInstance', '
   var vm = this;
   vm.item = item;
 
-  vm.mood = '';
+  vm.mood = 'Select your mood...';
 
   vm.contacts = [
     { name: 'Alessandro Del Piero', value: 'alessandro' },

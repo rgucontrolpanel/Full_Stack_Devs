@@ -8,11 +8,7 @@
         <th >Online contacts</th>
         <th>Message</th>
       </tr>
-<<<<<<< HEAD
-      <tr ng-repeat="contact in vm.contacts">
-        <td>{{contact.name}}</td>
-        <td><input type="submit" value="..." /></td>
-=======
+
       <tr>
         <td><p id="c1">Alessandro Del Piero</p></td>
         <td><input id="newMsg1" type="submit" value="..."></td>
@@ -36,7 +32,6 @@
       <tr>
         <td><p id="c6">Enzo Ferrari</p></td>
         <td><input  id="newMsg6" type="submit" value="..."></td>
->>>>>>> 9590f742fad2c1f5f05676534f1bda02d22a7e1a
       </tr>
     </table>
 </div>
@@ -48,7 +43,9 @@
       <div class="mood-row">
         <br>
           <label><b>New Facebook post</b></label>
-          <select id="country" ng-model="vm.mood" ng-options="m as m.mood for m in vm.moods"></select>
+          <select id="country" ng-model="vm.mood" ng-options="m as m.mood for m in vm.moods">
+            <option value="" disabled selected="selected">Select your mood...</option>
+          </select>
       </div>
           <div class="text-row">
             <br>
