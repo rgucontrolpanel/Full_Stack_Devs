@@ -3,6 +3,7 @@ angular.module('mainApp').controller('radioController', ['$uibModalInstance', '$
   var vm = this;
   vm.item = item;
 
+
   vm.ok = function () {
       $uibModalInstance.close();
   };
