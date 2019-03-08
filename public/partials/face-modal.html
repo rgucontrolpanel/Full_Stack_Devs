@@ -5,32 +5,32 @@
   <div class="contactsFB">
     <table>
       <tr>
-        <th>Online contacts</th>
+        <th >Online contacts</th>
         <th>Message</th>
       </tr>
       <tr>
-        <td>Alessandro Del Piero</td>
-        <td><input type="submit" value="..."></td>
+        <td><p id="c1">Alessandro Del Piero</p></td>
+        <td><input id="newMsg1" type="submit" value="..."></td>
       </tr>
       <tr>
-        <td>Iga Ninja</td>
-        <td><input type="submit" value="..."></td>
+        <td><p id="c2">Iga Ninja</p></td>
+        <td><input  id="newMsg2" type="submit" value="..."></td>
       </tr>
       <tr>
-        <td>Justeen Grindewald</td>
-        <td><input type="submit" value="..."></td>
+        <td><p id="c3">Justeen Grindewald</p></td>
+        <td><input id="newMsg3" type="submit" value="..."></td>
       </tr>
       <tr>
-        <td>Michelangelo</td>
-        <td><input type="submit" value="..."></td>
+        <td><p id="c4">Michelangelo</p></td>
+        <td><input  id="newMsg4" type="submit" value="..."></td>
       </tr>
       <tr>
-        <td>Thomas Aquinas</td>
-        <td><input type="submit" value="..."></td>
+        <td><p id="c5">Thomas Aquinas</p></td>
+        <td><input  id="newMsg5" type="submit" value="..."></td>
       </tr>
       <tr>
-        <td>Enzo Ferrari</td>
-        <td><input type="submit" value="..."></td>
+        <td><p id="c6">Enzo Ferrari</p></td>
+        <td><input  id="newMsg6" type="submit" value="..."></td>
       </tr>
     </table>
 </div>
@@ -64,8 +64,48 @@
     </div>
 </div>
 
+<div class="message-class">
+  <h3>New Message</h3>
+  <textarea name="name" rows="8" cols="60"></textarea>
+  <button type="button" name="btnSend">Send</button>
+</div>
+
 <br>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
     <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
 </div>
+
+
+
+<script>
+
+  $('#newMsg1').click(function(){
+      var nameC = $('#c1').text();
+    $("h3").append(" to: " + nameC);
+  });
+
+  $('#newMsg2').click(function(){
+      var nameC = $('#c2').text();
+    $("h3").append(" to: " + nameC);
+  });
+
+  $('#newMsg3').click(function(){
+      var nameC = $('#c3').text();
+    $("h3").append(" to: " + nameC);
+  })
+  $('#newMsg4').click(function(){
+      var nameC = $('#c4').text();
+    $("h3").append(" to: " + nameC);
+  });
+
+  $('#newMsg5').click(function(){
+      var nameC = $('#c5').text();
+    $("h3").append(" to: " + nameC);
+  });
+
+  $('#newMsg6').click(function(){
+      var nameC = $('#c6').text();
+    $("h3").append(" to: " + nameC);
+  });
+</script>
