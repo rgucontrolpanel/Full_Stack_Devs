@@ -227,6 +227,10 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.message-class {
+  margin-left: 20px;
+}
+
 
 
 /* Instagram Gallery CSS */
