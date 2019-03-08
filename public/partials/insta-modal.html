@@ -2,57 +2,18 @@
 
 <div class="modal-body" id="insta-modal">
 
-      <div class="gallery">
-          <img src="img/insta/river.jpg" alt="River">
-        <div class="desc"><b>River Flow</b>
-          <button id="loveIt">Like</button>
-          <button id="shareIt">Share</button>
-       </div>
+  <div class="gallery" ng-repeat="i in vm.images">
+    <img src="{{i.src}}" alt="{{i.alt}}" />
+    <div class="desc">
+      <strong>{{i.description}}</strong>
+      <button class="loveIt">Like</button>
+      <button class="shareIt">Share</button>
       </div>
+  </div>
 
-      <div class="gallery">
-          <img src="img/insta/lake.jpg" alt="Lake">
-        <div class="desc"><b>Lake</b>
-          <button id="loveIt">Like</button>
-          <button id="shareIt">Share</button>
-       </div>
-      </div>
-
-      <div class="gallery">
-          <img src="img/insta/pig.jpg" alt="Northern Lights">
-        <div class="desc"><b>Pigs-Animals-PF</b>
-          <button id="loveIt">Like</button>
-          <button id="shareIt">Share</button>
-       </div>
-      </div>
-
-      <div class="gallery">
-          <img src="img/insta/mountain.jpg" alt="Mountain">
-          <div class="desc"><b>Forest</b>
-            <button id="loveIt">Like</button>
-            <button id="shareIt">Share</button>
-         </div>
-      </div>
-
-      <div class="gallery">
-          <img src="img/insta/avocado.jpg" alt="Avocado">
-        <div class="desc"><b>Breakfast!</b>
-          <button id="loveIt">Like</button>
-          <button id="shareIt">Share</button>
-        </div>
-      </div>
-
-      <div class="gallery">
-          <img src="img/insta/mountain2.jpg" alt="Northern Lights">
-        <div class="desc"><b>Sky is Dark</b>
-          <button id="loveIt">Like</button>
-          <button id="shareIt">Share</button>
-        </div>
-      </div>
 </div>
 
-
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+  <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+  <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
 </div>

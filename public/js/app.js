@@ -1,4 +1,4 @@
-var app = angular.module('mainApp', ['ui.bootstrap', 'ds.clock', 'ui.calendar', 'chart.js']);
+var app = angular.module('mainApp', ['ui.bootstrap', 'ds.clock', 'ui.calendar', 'chart.js', 'ui.bootstrap.contextMenu']);
 
 app.controller('mainController', ['$scope', '$uibModal', '$http', function ($scope, $uibModal, $http) {
 
@@ -14,13 +14,13 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       src: "img/accessories/insta.png", templateUrl: 'insta-modal.html' },
       { id: '1', name: 'icon2', checked: false, description: 'Tweetter',
       src: "img/accessories/tweetter.png", templateUrl: 'tweet-modal.html' },
-      { id: '2', name: 'icon3', checked: false, description: 'Calendar',
+      { id: '2', name: 'icon3', checked: true, description: 'Calendar',
       src: "img/accessories/calendar.png", templateUrl: 'calendar-modal.html' },
       { id: '3', name: 'icon4', checked: false, description: 'Cookbook',
       src: "img/accessories/cookbook.png", templateUrl: 'cookbook-modal.html' },
       { id: '4', name: 'icon5', checked: false, description: 'Photo Album',
       src: "img/accessories/frame.png", templateUrl: 'photo-album-modal.html' },
-      { id: '5', name: 'icon6', checked: false, description: 'Market Stock',
+      { id: '5', name: 'icon6', checked: true, description: 'Market Stock',
       src: "img/accessories/pig.png", templateUrl: 'market-stock-modal.html' },
       { id: '6', name: 'icon7', checked: false, description: 'Sport',
       src: "img/accessories/poster.png", templateUrl: 'sports-modal.html' },
@@ -28,7 +28,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       src: "img/accessories/radio.png", templateUrl: 'radio-modal.html' },
       { id: '8', name: 'icon9', checked: false, description: 'Horoscope',
       src: "img/accessories/starball.png", templateUrl: 'horoscope-modal.html' },
-      { id: '9', name: 'icon10', checked: true, description: 'Laptop',
+      { id: '9', name: 'icon10', checked: false, description: 'Laptop',
       src: "img/accessories/laptop.png", templateUrl: 'face-modal.html' },
 
     ];
@@ -37,7 +37,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
       var modalInstance = $uibModal.open({
 
-        templateUrl: '/partials/config-modal.html',
+        templateUrl: 'partials/config-modal.html',
         controller: 'categoriesController',
         controllerAs: 'catCtrl',
         scope: $scope,

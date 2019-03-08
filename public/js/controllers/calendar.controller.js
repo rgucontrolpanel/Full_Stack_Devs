@@ -4,19 +4,22 @@ angular.module('mainApp').controller('calendarController', ['$uibModalInstance',
   vm.item = item;
 
   vm.add = false;
-  vm.namerequired = false;
-  vm.startrequired = false;
-  vm.endrequired = false;
 
   var date = new Date();
   var year = date.getFullYear();
   var month = date.getMonth();
-  var day = date.getDay();
+  var day = date.getDate();
+
+
+  vm.menuOptions = [
+    { text: 'text', click: function(){}},
+    { text: 'text2', click: function(){}}
+  ];
 
   var events = [
-    { title: 'new event 1', start: new Date(year, month, day - 2) },
-    { title: 'new test kurwa', start: new Date(year, month, day + 8) },
-    { title: 'new event 2', start: new Date(year, month, day + 12) }
+    { title: 'test test test', start: new Date(year, month, day - 2) },
+    { title: 'event test', start: new Date(year, month, day + 8), end: new Date(year, month, day + 11) },
+    { title: 'test event event test', start: new Date(year, month, day + 12) }
   ];
 
   vm.eventSources = [events];
@@ -24,7 +27,10 @@ angular.module('mainApp').controller('calendarController', ['$uibModalInstance',
   vm.uiConfig = {
     calendar: {
       editable: true,
-      dayClick: function(){
+      selectable: true,
+      dayClick: function(event){
+
+        vm.eventstart = new Date(event);
         vm.addEvent();
 
         setTimeout(function(){
@@ -39,8 +45,18 @@ angular.module('mainApp').controller('calendarController', ['$uibModalInstance',
   };
 
   vm.addEvent = function(){
-    vm.add = !vm.add;
+
+    if(vm.add === false)
+      vm.add = !vm.add;
+
   };
+
+  vm.cancelEvent = function(){
+    vm.add = !vm.add;
+    vm.eventname = '';
+    vm.eventstart = '';
+    vm.eventend = '';
+  }
 
   vm.dtoptions = {
     formatYear: 'yy',
@@ -48,7 +64,6 @@ angular.module('mainApp').controller('calendarController', ['$uibModalInstance',
     minDate: new Date(),
     startingDay: 1
   };
-
 
   vm.pop1 = { opened: false };
   vm.pop2 = { opened: false };
@@ -62,22 +77,8 @@ angular.module('mainApp').controller('calendarController', ['$uibModalInstance',
 
   vm.confirmEvent = function(){
 
-    if(vm.eventname === null || vm.eventname === undefined)
-      vm.namerequired = true;
-    else if(vm.eventname !== null)
-      vm.namerequired = false;
-    else if(vm.eventstart === null || vm.eventstart === undefined)
-      vm.startrequired = true;
-    else if(vm.eventstart !== null)
-      vm.eventstart = false;
-    else if(vm.eventend === null || vm.eventend === undefined)
-      vm.endrequired = true;
-    else if(vm.eventend !== null)
-      vm.endrequired = false;
-    else{
-      events.push({ title: vm.eventName, start: vm.eventstart, end: vm.eventend });
-      vm.add = !vm.add;
-    }
+    events.push({ title: vm.eventname, start: vm.eventstart, end: vm.eventend });
+    vm.add = false;
 
   };
 

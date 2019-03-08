@@ -255,18 +255,18 @@ div.desc {
   font-style: italic;
 }
 
-#loveIt{
+.loveIt{
   float: right;
 }
 
-#shareIt{
+.shareIt{
   margin-right: 1%;
   float: right;
 }
 
-#shareIt:hover {
+.shareIt:hover {
   background-color: RoyalBlue;
 }
-#loveIt:hover {
+.loveIt:hover {
   background-color: red;
 }

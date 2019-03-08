@@ -8,6 +8,7 @@
         <th >Online contacts</th>
         <th>Message</th>
       </tr>
+
       <tr>
         <td><p id="c1">Alessandro Del Piero</p></td>
         <td><input id="newMsg1" type="submit" value="..."></td>
@@ -42,12 +43,8 @@
       <div class="mood-row">
         <br>
           <label><b>New Facebook post</b></label>
-          <select id="country" name="Select your Mood">
-            <option value="mood1">Happy</option>
-            <option value="mood2">Busy</option>
-            <option value="mood3">Excited</option>
-            <option value="mood4">Sad</option>
-            <option value="mood5">Sleepy</option>
+          <select id="country" ng-model="vm.mood" ng-options="m as m.mood for m in vm.moods">
+            <option value="" disabled selected="selected">Select your mood...</option>
           </select>
       </div>
           <div class="text-row">
@@ -72,8 +69,8 @@
 
 <br>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+  <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+  <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
 </div>
 
 

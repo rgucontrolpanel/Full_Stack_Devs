@@ -5,16 +5,12 @@ angular.module('mainApp').controller('marketStockController', ['$uibModalInstanc
 
   vm.stockItems = [];
 
+  vm.series = ['Open', 'Close'];
 
-  vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  vm.series = ['Series A', 'Series B'];
-  vm.data = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];
   vm.onClick = function (points, evt) {
     console.log(points, evt);
   };
+
   vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
   vm.options = {
     scales: {
@@ -45,14 +41,6 @@ angular.module('mainApp').controller('marketStockController', ['$uibModalInstanc
 
   $http(stockApi).then(function(response){
 
-    // console.log(response);
-    // angular.forEach(response.data, function(value, key){
-    //
-    //   var s = { id: key, symbol: value.symbol, name: value.name };
-    //   detCtrl.stockItems.push(s);
-    //
-    // });
-
     for(var i = 0; i < 100; i++){
 
       var s = { id: i, symbol: response.data[i].symbol, name: response.data[i].name };
@@ -64,8 +52,7 @@ angular.module('mainApp').controller('marketStockController', ['$uibModalInstanc
 
   vm.getCompanyDetails = function (symbol){
 
-    console.log(symbol);
-    var stockApi = {
+    var stockHistory = {
       method: 'get',
       url: 'https://cors-anywhere.herokuapp.com/https://cloud.iexapis.com/beta/stock/' + symbol + '/chart/1y/?token=sk_c131aad5c80d4c77bcdfb71dea77cf3a',
       headers:{
@@ -73,11 +60,37 @@ angular.module('mainApp').controller('marketStockController', ['$uibModalInstanc
       }
     }
 
-    $http(stockApi).then(function(response){
+    $http(stockHistory).then(function(response){
 
-      console.log(response);
+      vm.close = [], vm.open = [], vm.data = [], vm.labels = [];
+
+      for(var i = 0; i < response.data.length; i++){
+
+        vm.open.push(response.data[i].open);
+        vm.close.push(response.data[i].close);
+        vm.labels.push(response.data[i].date);
+
+      }
+
+      vm.data.push(vm.open);
+      vm.data.push(vm.close);
 
     });
+
+    var company = {
+      method: 'get',
+      url: 'https://cors-anywhere.herokuapp.com/https://cloud.iexapis.com/beta/stock/' + symbol + '/company/?token=sk_c131aad5c80d4c77bcdfb71dea77cf3a',
+      headers:{
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+
+    $http(company).then(function(response){
+
+      vm.details = response.data;
+
+    });
+
   }
 
   vm.ok = function () {
