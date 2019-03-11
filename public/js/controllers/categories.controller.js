@@ -1,6 +1,6 @@
 angular.module('mainApp').controller('categoriesController', ['$uibModalInstance', 'items', function ($uibModalInstance, items) {
 
-    catCtrl = this;
+    var catCtrl = this;
     catCtrl.items = items;
 
     catCtrl.ok = function () {

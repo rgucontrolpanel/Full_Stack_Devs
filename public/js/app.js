@@ -4,6 +4,16 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
 
     var vm = this;
 
+
+    $http.get('/usersserver').then(function(response){
+      console.log(response);
+    });
+
+    $http.get('/userslocal').then(function(response){
+      console.log(response)
+    });
+
+
     //$('#clock').draggable();
 
     vm.categoriesCount = 0;
@@ -14,7 +24,7 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       src: "img/accessories/insta.png", templateUrl: 'insta-modal.html' },
       { id: '1', name: 'icon2', checked: false, description: 'Calendar',
       src: "img/accessories/calendar.png", templateUrl: 'calendar-modal.html' },
-      { id: '2', name: 'icon3', checked: false, description: 'Cookbook',
+      { id: '2', name: 'icon3', checked: true, description: 'Cookbook',
       src: "img/accessories/cookbook.png", templateUrl: 'cookbook-modal.html' },
       { id: '3', name: 'icon4', checked: false, description: 'Photo Album',
       src: "img/accessories/frame.png", templateUrl: 'photo-album-modal.html' },
@@ -30,6 +40,13 @@ app.controller('mainController', ['$scope', '$uibModal', '$http', function ($sco
       src: "img/accessories/laptop.png", templateUrl: 'face-modal.html' },
 
     ];
+
+    angular.forEach(vm.items, function(value, key){
+
+      if(vm.items[key].checked)
+        $('#icon' + parseInt(key + 1)).draggable({});
+
+    });
 
     vm.openModal = function () {
 
