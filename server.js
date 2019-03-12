@@ -10,6 +10,15 @@ var localurl = 'mongodb://localhost/rcp-database';
 serverdb.connect(serverurl, { useNewUrlParser: true });
 localdb.connect(localurl, { useNewUrlParser: true });
 
+serverdb.Promise = global.Promise;
+localdb.Promise = global.Promise;
+
+var db1 = serverdb.connection;
+var db2 = localdb.connection;
+
+db1.on('error', console.error.bind(console, 'Server connection error: '));
+db2.on('error', console.error.bind(console, 'Local connection error: '));
+
 var serverSchema = serverdb.Schema({
   name: String,
   password: String
